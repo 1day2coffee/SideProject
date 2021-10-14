@@ -1,0 +1,21 @@
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: .2px;
+    background-color: #f7f9fc;
+}
+
+.btn{
+    padding: 10px 20px;
+    background-color: #6fbaf8;
+    border: none;
+}
+
+.sub-color{
+    color: #6fbaf8;
+}
+
+.skills-badge{
+    color: black;
+}

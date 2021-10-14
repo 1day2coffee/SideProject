@@ -1,0 +1,162 @@
+@font-face{
+    font-family : 'nanum';
+    src: url(/font/NanumSquareR.woff);
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: .2px;
+    font-family: 'nanum';
+    transform: rotate(0.03deg);
+}
+
+h4, h1, h2, p{
+    margin: 5px 0px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background-color: #4c4b4b;
+    margin-top: 10px;
+}
+
+.top-section {
+    background: linear-gradient(to bottom, #4997dc, #4d64c2);
+    padding: 5% 5% 0px 5%;
+}
+
+.top-section .container{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.top-section img {
+    width: 30%;
+}
+
+.middle-section .title-and-contents{
+    text-align: center;
+    margin: 50px 0;
+}
+
+.middle-section p {
+    font-size: 12px;
+}
+
+
+.middle-section .icons-container {
+    text-align: center;
+    color: white;
+    background-color: #4e61c0;
+    padding: 20px 100px;
+}
+
+.middle-section .items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.middle-section i {
+    background-color: white;
+    color: #4e61c0;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.bottom-section {
+    padding: 60px;
+    text-align: center;
+}
+
+.bottom-section .title-and-contents {
+    text-align: center;
+    
+}
+
+.bottom-section .items-1{
+    float: left;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/image/portfolio-1.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 350px;
+}
+
+.bottom-section .items-2{
+    float: left;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/image/portfolio-2.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 350px;
+}
+
+.bottom-section .items-3{
+    float: left;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/image/portfolio-3.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 350px;
+}
+
+.bottom-section .items-4{
+    float: left;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/image/portfolio-4.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 350px;
+}
+
+.bottom-section .text{
+    color: white;
+    padding: 30px;
+    width: 80%;
+}
+
+.bottom-section .container{
+    text-align: left;
+    max-width: 1200px;
+    margin: auto;
+}
+
+footer .container{
+    text-align: center;
+}
+
+footer i{
+    background-color: #4e61c0;
+    color: white;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+footer p{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 992px){
+    .top-section .container{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .top-section img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
