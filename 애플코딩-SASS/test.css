@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.list .item {
+  font-size: 16px;
+  width: 300px;
+  padding: 15px;
+  border: 1px solid #eee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.list .active {
+  background-color: blue;
+  color: white;
+}
+
+.alert .text-well {
+  background-color: green;
+  color: black;
+  font-size: 16px;
+  width: 1000px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.alert .text-heads {
+  background-color: blue;
+  color: black;
+  font-size: 16px;
+  width: 1000px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.alert .text-warning {
+  background-color: yellow;
+  color: black;
+  font-size: 16px;
+  width: 1000px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.row .col-6 {
+  width: 50%;
+  background-color: aliceblue;
+  float: left;
+}
+.row .col-4 {
+  width: 33%;
+  background-color: aliceblue;
+  float: left;
+}
+.row .col-2 {
+  width: 16.6%;
+  background-color: aliceblue;
+  float: left;
+}/*# sourceMappingURL=test.css.map */

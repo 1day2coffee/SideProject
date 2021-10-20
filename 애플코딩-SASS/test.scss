@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@mixin list-item() {
+  font-size: 16px;
+  width: 300px;
+  padding: 15px;
+  border: 1px solid #eee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.list {
+  .item {
+    @include list-item();
+  }
+
+  .active {
+    background-color: blue;
+    color: white;
+  }
+}
+
+@mixin alert-box($bg-color, $font-color) {
+  background-color: $bg-color;
+  color: $font-color;
+  font-size: 16px;
+  width: 1000px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alert {
+  .text-well {
+    @include alert-box(green, black);
+  }
+
+  .text-heads {
+    @include alert-box(blue, black);
+  }
+
+  .text-warning {
+    @include alert-box(yellow, black);
+  }
+}
+
+@mixin make-col($col-size) {
+  width: $col-size;
+  background-color: aliceblue;
+  float: left;
+}
+
+.row {
+  .col-6 {
+    @include make-col(50%);
+  }
+
+  .col-4 {
+    @include make-col(33%);
+  }
+
+  .col-2 {
+    @include make-col(16.6%);
+  }
+}
+
+.ani-text {
+    text-align: center;
+}
+
+.ani-text:hover{
+    animation-name: 왔다갔다;
+    animation-duration: 1s;
+}
+
+@keyframes 왔다갔다{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-100px);
+    }
+    100%{
+        transform: translateX(100px);
+    }
+}

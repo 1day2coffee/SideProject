@@ -1,0 +1,106 @@
+
+.button {
+    width: 120px;
+    height: 80px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: lightskyblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.button:hover{
+    animation-name: button;
+    animation-duration: 1s;
+}
+
+@keyframes button{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(8deg);
+    }
+    50%{
+        transform: rotate(-8deg);
+    }
+    75%{
+        transform: rotate(8deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.cross{
+    display: inline-block;
+}
+
+
+.cross:hover{
+    animation-name: cross;
+    animation-duration: 1s;
+}
+
+@keyframes cross{
+    25%{
+        transform: rotate(-15deg);
+    }
+    100%{
+        transform: rotate(45deg);
+        transform: scale(2.5);
+    }
+}
+.side-bar {
+    width: 200px;
+    height: 500px;
+    padding: 25px;
+    position: fixed;
+    z-index: 5;
+    background-color: black;
+    transform: translateX(-150px);
+    text-align: right;
+    transition: all 1s;
+    
+}
+
+.side-bar:hover{
+    transform: translateX(0px);
+}
+
+.side-bar p{
+    color: white;
+}
+
+.item{
+    text-align: left;
+}
+
+.side-bar:hover .item{
+    animation-name: slide;
+    animation-duration: 1s;
+    text-align: center;
+}
+
+.side-bar:hover .menu{
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(-150px)
+    }
+    50%{
+        transform: translateX(20px)
+        skewX(-30deg)
+    }
+    100%{
+        transform: translateX(0px)
+    }
+}
