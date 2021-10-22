@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="./main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+<!--
+   <div class="alert-box" id="alert">Alert box<button id="close">닫기</button></div>
+       <button onClick="문구변경('ID를 입력하세요')">버튼1</button>
+       <button onClick="문구변경('비밀번호를 입력하세요')">버튼2</button>
+       
+    <h4>안녕하세요</h4>
+   
+   <script >
+       function 문구변경(문구){
+           document.getElementById('alert').style.display = 'block';
+           document.getElementById('alert').innerHTML = 문구;
+       }
+       
+       document.getElementById('close').addEventListener('click', function(){
+           document.getElementById('alert').style.display = 'none';
+       });
+    
+    </script>
+-->
+   <p class="greeting">안녕하세요</p>
+<p class="greeting">안녕하세요</p>
+<p class="greeting">안녕하세요</p>
+  
+  <button class="btn">버튼btn</button>
+<button class="btn">버튼btn</button>
+<button class="btn">버튼btn</button>
+   
+    
+    <script>
+//        $('h4').addClass('yellow-bg');
+        $('.greeting').html('안녕');
+        $('.greeting').hide();
+        $('.btn').on('click', function(){
+            $('.greeting').slideDown();
+        })
+    
+    </script>
+</body>
+</html>
