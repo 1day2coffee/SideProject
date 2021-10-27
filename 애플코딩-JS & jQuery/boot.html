@@ -17,12 +17,13 @@
   <div class="left-menu">
       <p>Menu Title</p>
   </div>
-   
+  
+<!-- LOG IN MODAL  -->
     <div class="black-background">
         <div class="white-background">
             <p>로그인하세요</p>
             
-            <form action="login">
+            <form action="login">dib
               <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" id="email">
               <p id="email-alert">id를 입력해주세요</p>
@@ -38,8 +39,9 @@
         </div>
     </div>
     
+<!--  NAV BAR -->
     <div class="nav-bar">
-        <h4 style="margin: 0;">The Shirt Studio</h4>
+        <h4 style="margin: 0;" class="large-logo">The Shirt Studio</h4>
         <a id="nav-menu">products</a>
     </div>
     
@@ -58,8 +60,8 @@
       <a class="btn btn-danger btn-lg button" href="#" role="button" id="show-menu">Show Menu</a>
       </div>
       
-      
-      <h4 class="my-4 text-center">chowcase</h4>
+<!--   CATOUSEL   -->
+      <h4 class="my-4 text-center">Showcase</h4>
       
       <div style="overflow: hidden; position: relative;">
           <div class="slide-container">
@@ -80,9 +82,42 @@
     </div>
       
       <div class="my-5"></div>
+      
+<!--  TAB   -->
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button" data-id="0">Products</li>
+            <li class="tab-button" data-id="1">Information</li>
+            <li class="tab-button" data-id="2">Shipping</li>
+        </ul>
 
+        <div class="tab-content">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+            <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+	    </div>
+    </div>
+      
+      
+<!-- SCRIPT -->
+   
+   <script src="./tab.js"></script>    
     
     <script>
+        
+    $(window).on('scroll', function(){
+        if($(window).scrollTop() > 100){
+            $('.nav-bar').addClass('nav-black');
+            $('.nav-bar h4').addClass('small-logo');
+        }else{
+            $('.nav-bar').removeClass('nav-black');
+            $('.nav-bar h4').removeClass('small-logo');
+        }
+    });
         
     var 지금보이는사진 = 1;
         
@@ -114,6 +149,17 @@
         $('.slide-container').css('transform','translateX(-200vw)');
     });
         
+    $('.black-background').click(function(e){
+        if(e.target == e.currentTarget){
+           $(this).hide();
+           }
+        
+//        e.target; // 지금 실제로 클릭한 요소
+//        e.currentTarget; // 지금 이벤트리스너가 달린 곳
+//        $(this);
+//        e.preventDefault(); // 기본동작 막기
+    });
+        
     $('#login').on('click', function(){
         $('.black-background').removeClass('slide-up').addClass('slide-down');
     });
@@ -121,7 +167,7 @@
     $('#nav-menu').click(function(){
         $('.nav-sub').slideToggle();
     });
-        
+//        
     $('#close-btn').click(function(){
         $('.black-background').removeClass('slide-down').addClass('slide-up');
     })
