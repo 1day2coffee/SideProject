@@ -1,72 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link href="./main.css" rel="stylesheet">
-</head>
-<body>
-<form class="container my-5">
-  <div class="form-group">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <p>상품선택</p>
-    <select class="form-control" id="option1">
-      <option>모자</option>
-      <option>셔츠</option>
-      <option>바지</option>
-    </select>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     
-    
-    <div class="size-select">
-        <p class="mt-4">사이즈선택</p>
-        <select class="form-control" id="option2">
-        </select>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <title>shopping</title>
+  </head>
+  <body>
+  
+  <div class="card-group container">
+<!--
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5 class="title">Card title</h5>
+      <p class="price">가격 : 70000</p>
+      <button class="btn btn-danger">주문하기</button>
     </div>
   </div>
-</form>
-
-<script>
-
-    function 목표량계산기(판매실적어레이, 평균월별판매량){
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5 class="title">Card title</h5>
+      <p class="price">가격 : 70000</p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5 class="title">Card title</h5>
+      <p class="price">가격 : 70000</p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>
+-->
+</div>
+    
+    <div class="container my-4">
+        <button class="btn btn-danger" id="sort-price">가격순 정렬</button>
+        <button class="btn btn-danger" id="sort-char">가나다순 정렬</button>
+        <button class="btn btn-danger" id="sort-char-reverse">다나가순 정렬</button>
+        <button class="btn btn-danger" id="filter-money">5만원이하 필터</button>
+        <button class="btn btn-danger" id="reset-filter">원래대로</button>
         
-        const 총판매량 = 평균월별판매량 * 6;
-        let 실적 = 0;
+    </div>
+    
+    <script>
+    
+      var products = [
+        { id : 0, price : 70000, title : 'Blossom Dress' },
+        { id : 1, price : 50000, title : 'Springfield Shirt' },
+        { id : 2, price : 60000, title : 'Black Monastery' }
+      ];
         
-        판매실적어레이.forEach(function(갯수){
-           실적 += 갯수;
+        function showHtml(){
+            for(let i=0; i<products.length; i++){
+                $('.title').eq(i).html(products[i].title);
+                $('.price').eq(i).html(products[i].price);
+            }
+        };
+        
+    function reset(){
+    $(document).ready(function(){
+        for(let i=0; i<products.length; i++){
+            var template = `<div class="card">
+                                 <img src="https://via.placeholder.com/600">
+                                    <div class="card-body">
+                                      <h5 class="title">${products[i].title}</h5>
+                                      <p class="price">${products[i].price}</p>
+                                      <button class="btn btn-danger">주문하기</button>
+                                    </div>
+                                  </div>`;
+            $('.card-group').append(template);
+        }
+    });
+    }
+        reset();
+    
+        
+        $('#sort-price').click(function(){
+           products.sort(function(a,b){
+               return a.price - b.price
+           })
+            showHtml();
         });
         
-        console.log(`12월엔 ${총판매량-실적}개를 팔아야 합니다.`);
+        $('#sort-char').click(function(){
+            products.sort(function(a,b){
+                if(a.title < b.title == true){
+                    return -1
+                }else{
+                    return 1
+                }
+            });
+            showHtml();
+        });
         
+        $('#sort-char-reverse').click(function(){
+            products.sort(function(a,b){
+                if(a.title < b.title == true){
+                    return 1
+                }else{
+                    return -1
+                }
+            });
+            showHtml();
+        });
         
-    }
-    
-//    var 사이즈 = [26, 28, 30, 32, 34, 36];
-//    
-//    var 템플릿_셔츠 = `<option>95</option> 
-//                <option>100</option>
-//                <option>105</option>;`
-//    
-//    $('#option1').on('change', function(){
-//        if($('#option1').val() == "셔츠"){
-//            $('#option2').empty();
-//            $('#option2').append(템플릿_셔츠);
-//
-//            
-//        }else if($('#option1').val() == "바지"){
-//            $('#option2').empty();
-//            
-//            사이즈.forEach(function(i){
-//                var 템플릿_바지 = `<option>${i}</option>`;
-//                $('#option2').append(템플릿_바지);
-//            });
-//        }
-//    });
-    
-</script>
+        $('#filter-money').click(function(){
+            var newProducts = products.filter(function(a){
+              return a.price <= 60000
+            });
+            
+             $('.card-group').empty();
+            for(let i=0; i<newProducts.length; i++){
+                var template = `<div class="card">
+                             <img src="https://via.placeholder.com/600">
+                                <div class="card-body">
+                                  <h5 class="title">${newProducts[i].title}</h5>
+                                  <p class="price">${newProducts[i].price}</p>
+                                  <button class="btn btn-danger">주문하기</button>
+                                </div>
+                              </div>`;
+                $('.card-group').append(template);
+                }
+        });
+        
+        $('#reset-filter').click(function(){
+            $('.card-group').empty();
+            reset();
+        });
+
+      </script>
 
 
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+  </body>
 </html>
