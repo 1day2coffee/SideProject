@@ -16,8 +16,94 @@
     <button>버튼1</button>
     <button>버튼2</button>
 -->
+  
+  <script>
+      // 문제 1, 2 ,3
+      class 강아쥐{
+          constructor(type, color){
+              this.type = type;
+              this.color = color;
+          }
+          
+          한살먹귀(){
+              if(this instanceof 고양이){
+                  this.age++;
+              }
+          }
+      }
+      
+      var 강아지1 = new 강아쥐('말티즈', 'white');
+      console.log(강아지1);
+      
+      class 고양이 extends 강아쥐{
+          constructor(type, color, age){
+              super(type, color);
+              this.age = age;
+          }
+          한살먹기 = function(){
+              return this.age + 1;
+          }
+          
+      }
+      var 고양이1 = new 고양이('코숏', 'white', 20);
+      console.log(고양이1.한살먹귀());
+      console.log(강아지1.한살먹귀());
+      
+      // 문제 4
+      class Unit{
+          constructor(){
+              this.atk = 5;
+              this.hp = 100;
+          }
+          
+          get battlePoint(){
+              return this.atk + this.hp;
+          }
+          
+          set heal(number){
+              this.hp += number;
+          }
+      }
+      
+      var 인스턴스 = new Unit();
+      console.log(인스턴스);
+      console.log(인스턴스.battlePoint);
+      console.log(인스턴스);
+      console.log(인스턴스.heal = 50);
+      console.log(인스턴스);
+      
+      //문제 5
+      
+      var data = {
+          odd : [],
+          even : [],
+          set setter함수(a){
+                if(a % 2 == 0){
+                    this.even.push(a);
+                }else{
+                    this.odd.push(a);
+                }
+            },
+          
+          get getter함수(){
+              return [...this.odd, ...this.even].sort();
+            }
+      }
+      
+      console.log(data.setter함수 = 1);
+      console.log(data.setter함수 = 2);
+      console.log(data.setter함수 = 3);
+      console.log(data.setter함수 = 4);
+      console.log(data.setter함수 = 1);
+      console.log(data.getter함수);
+      console.log(data.odd);
+      console.log(data.even);
+      
+      
+  </script>
    
    
+<!--
    <script>
        
        Array.prototype.removeChoice = function(choice){
@@ -49,7 +135,35 @@
        
        console.log(자식);
        
+       
+       class 할아버지 {
+           constructor(name){
+               this.성 = 'kim';
+               this.이름 = name;
+           }
+           sayHi(){
+               console.log('안녕 나는 할아버지에요');
+           }
+           
+       }
+       
+       class 아버지 extends 할아버지{
+           constructor(name){
+               super(name);
+               this.나이 = 50;
+           }
+            sayHi(){
+               console.log('안녕 나는 아버지에요');
+                super.sayHi();
+           }
+       }
+       
+       var 아버지1 = new 아버지('만수');
+       
+       console.log(아버지1.sayHi());
+       
     </script>
+-->
     
 <!--
      <script>
