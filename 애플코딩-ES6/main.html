@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     <title>Document</title>
 </head>
 <body>
-  
+
+<button id="promiseButton">프로미스버튼</button>
+<!--  <img id="test" src="https://codingapple1.github.io/kona.jpg"> -->
   
 <!--
     <div style="display : none">모달창0</div>
@@ -16,7 +19,99 @@
     <button>버튼1</button>
     <button>버튼2</button>
 -->
+ 
+ <script type="module">
+     
+//     import c, {a, b} from './library.js'
+//     
+//     console.log(a, b, c);
+//     
+//     var name = 'kim';
+//     var age = 30;
+//     
+//     var obj = {name : name, age : age};
+//     var obj = {name, age};
+//     
+//     
+//     let 신체정보 = {
+//      body: {
+//        height: 190,
+//        weight: 70
+//      },
+//      size: ["상의 Large", "바지 30인치"],
+//    };
+//     
+//    let {
+//        body: {
+//            height,
+//            weight
+//        },
+//        size: [상의, 하의]
+//    } = 신체정보;
+
+     
+     // 문제 1
+//    let img = document.querySelector('#test');
+//     
+//    let promise1 = new Promise(function(성공, 실패){
+//        
+//        img.addEventListener('load', function(){
+//            성공();
+//        });
+//        img.addEventListener('error', function(){
+//            실패();
+//        });
+//    });
+//    
+//    promise1.then(function(){
+//        console.log('성공');
+//    }).catch(function(){
+//        console.log('실패');
+//    });
+     
+     // 문제2,3
+     
+//     var promise2 = new Promise(function(성공, 실패){
+//         $.ajax({
+//             url : 'https://codingapple1.github.io/hello.txt',
+//             method : 'GET'
+//                }).done(function(결과){
+//             성공(결과);
+//         });
+//     })
+//     
+//     promise2.then(function(결과){
+//         console.log(결과);
+//         return new Promise((성공, 실패) => {
+//             
+//         })
+//     }).then(function(){
+//         $.get('https://codingapple1.github.io/hello2.txt').done(function(결과){
+//             console.log(결과);
+//         })
+//     });
+     
+
+     let 프로미스 = new Promise((성공, 실패) => {
+        document.querySelector('#promiseButton').addEventListener('click', function(){
+            성공();
+        })
+     });
+         
+    async function 버튼누르기(){
+         let 결과 = await 프로미스;
+         console.log('성공');
+    }
+     
+     버튼누르기();
+     
+     
+    
+     
+    
+ </script>
   
+<!--
   <script>
       // 문제 1, 2 ,3
       class 강아쥐{
@@ -101,6 +196,7 @@
       
       
   </script>
+-->
    
    
 <!--
