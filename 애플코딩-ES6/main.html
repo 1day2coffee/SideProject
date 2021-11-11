@@ -7,7 +7,66 @@
 </head>
 <body>
 
-<button id="promiseButton">프로미스버튼</button>
+    <canvas id="canvas">
+        
+        
+        
+    </canvas>
+    
+    <script src="main.js"></script>
+
+
+
+
+
+
+
+<!--
+<custom-input name='아이디'></custom-input>
+<custom-input name='비번'></custom-input>
+-->
+
+
+<!--
+    <div class="modor"></div>
+
+    <script>
+        document.querySelector('#mordor').attachShadow({mode : 'open'});
+        document.querySelector('#mordor').shadowRoot.innerHTML = 
+            `<p>심연에서 왔도다</p>`;
+    
+    </script>
+-->
+
+
+<!--
+<script>
+    
+    
+    class 클래스 extends HTMLElement{
+        connectedCallback(){
+            let name = this.getAttribute('name');
+            this.innerHTML = `<label>${name}인풋이에요</label><input>`;
+        }
+        
+        static get observedAttributes(){
+            return ['name']
+        }
+        
+        attributeChangedCallback(){
+            
+            
+        }
+        
+    }
+    customElements.define('custom-input', 클래스);
+    
+    
+</script>
+-->
+
+
+<!--<button id="promiseButton">프로미스버튼</button>-->
 <!--  <img id="test" src="https://codingapple1.github.io/kona.jpg"> -->
   
 <!--
@@ -19,77 +78,144 @@
     <button>버튼1</button>
     <button>버튼2</button>
 -->
+
+<!--
+<script>
+    
+    //Symbol = object의 비밀스러운 key 값
+    var 심볼 = Symbol('설명');
+    
+    var weight = Symbol('내 시크릿 몸무게임');
+    var height = Symbol('내 시크릿 키임');
+    
+    var person = {name: 'park', age: 29};
+    person.weight = 90;
+    person[weight] = 100;
+    person[height] = 180;
+    
+    
+    for (var key in person){
+        console.log(person[key]);
+    }
+    
+    // map은 자료간의 연관성을 표시, key값에 어떤 자료형이든 쓸 수 있음
+    var person = new Map();
+    person.set('name', 'park');
+    person.set('age', 20);
+    
+    person.get('age');
+    person.delete();
+    person.size;
+    
+    // 대괄호로 저장해야 함
+    var person = new Map([
+        ['name', 'park'],
+        ['age', 20]
+    ]);
+    
+    var 출석부 = ['존', '톰', '앤디', '톰'];
+    var 출석부2 = new Set(['존', '톰', '앤디', '톰']);
+    
+    출석부 = [...출석부2];
+    
+    </script>
+-->
  
+<!--
  <script type="module">
      
-//     import c, {a, b} from './library.js'
-//     
-//     console.log(a, b, c);
-//     
-//     var name = 'kim';
-//     var age = 30;
-//     
-//     var obj = {name : name, age : age};
-//     var obj = {name, age};
-//     
-//     
-//     let 신체정보 = {
-//      body: {
-//        height: 190,
-//        weight: 70
-//      },
-//      size: ["상의 Large", "바지 30인치"],
-//    };
-//     
-//    let {
-//        body: {
-//            height,
-//            weight
-//        },
-//        size: [상의, 하의]
-//    } = 신체정보;
 
      
-     // 문제 1
-//    let img = document.querySelector('#test');
-//     
-//    let promise1 = new Promise(function(성공, 실패){
-//        
-//        img.addEventListener('load', function(){
-//            성공();
-//        });
-//        img.addEventListener('error', function(){
-//            실패();
-//        });
-//    });
-//    
-//    promise1.then(function(){
-//        console.log('성공');
-//    }).catch(function(){
-//        console.log('실패');
-//    });
+     // for of는 iterable 전용
+     let 데이터 = [1,2,3,4,5,6,7,8,9];
      
-     // 문제2,3
+     for (var 단 of 데이터){
+         console.log(`${데이터[단-1]} x ${단} = ${*단}`);
+     }
      
-//     var promise2 = new Promise(function(성공, 실패){
-//         $.ajax({
-//             url : 'https://codingapple1.github.io/hello.txt',
-//             method : 'GET'
-//                }).done(function(결과){
-//             성공(결과);
-//         });
-//     })
-//     
-//     promise2.then(function(결과){
-//         console.log(결과);
-//         return new Promise((성공, 실패) => {
-//             
-//         })
-//     }).then(function(){
-//         $.get('https://codingapple1.github.io/hello2.txt').done(function(결과){
-//             console.log(결과);
-//         })
-//     });
+     
+     // for in은 오브젝트 전용(enumerable)
+    class 부모{
+     }
+     부모.prototype.name = "Park";
+     
+     var 오브젝트 = new 부모();
+     
+     for (var key in 오브젝트){
+         if(오브젝트.hasOwnProperty(key)){
+             console.log(오브젝트[key]);
+         }
+     }
+     
+     
+     import c, {a, b} from './library.js'
+     
+     console.log(a, b, c);
+     
+     var name = 'kim';
+     var age = 30;
+     
+     var obj = {name : name, age : age};
+     var obj = {name, age};
+     
+     
+     let 신체정보 = {
+      body: {
+        height: 190,
+        weight: 70
+      },
+      size: ["상의 Large", "바지 30인치"],
+    };
+     
+    let {
+        body: {
+            height,
+            weight
+        },
+        size: [상의, 하의]
+    } = 신체정보;
+
+     
+      문제 1
+    let img = document.querySelector('#test');
+     
+    let promise1 = new Promise(function(성공, 실패){
+        
+        img.addEventListener('load', function(){
+            성공();
+        });
+        img.addEventListener('error', function(){
+            실패();
+        });
+    });
+    
+    promise1.then(function(){
+        console.log('성공');
+    }).catch(function(){
+        console.log('실패');
+    });
+     
+      문제2,3
+     
+     var promise2 = new Promise(function(성공, 실패){
+         $.ajax({
+             url : 'https://codingapple1.github.io/hello.txt',
+             method : 'GET'
+                }).done(function(결과){
+             성공(결과);
+         });
+     })
+     
+     promise2.then(function(결과){
+         console.log(결과);
+         return new Promise((성공, 실패) => {
+             
+         })
+     }).then(function(){
+         $.get('https://codingapple1.github.io/hello2.txt').done(function(결과){
+             console.log(결과);
+         })
+     });
      
 
      let 프로미스 = new Promise((성공, 실패) => {
@@ -105,11 +231,12 @@
      
      버튼누르기();
      
-     
+
     
      
     
  </script>
+-->
   
 <!--
   <script>
