@@ -16,6 +16,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/public/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.js"></script>
 
     <title>Things To Do</title>
   </head>
@@ -28,6 +29,20 @@
       <p>할일 마감날짜: <%= posts[i].날짜 %></p>
       <button>삭제</button>
     <% } %> -->
+
+    <div class="container input-group mb-2">
+      <input class="form-control" id="search-input" />
+      <button class="input-group-append btn btn-danger" id="search">
+        검색
+      </button>
+    </div>
+
+    <script>
+      $("#search").click(function () {
+        let 입력한값 = $("#search-input").val();
+        window.location.replace(`/search?value=${입력한값}`);
+      });
+    </script>
 
     <div class="container">
       <ul class="list-group">
@@ -47,8 +62,6 @@
         </li>
       </ul>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
     <script>
       $(".delete").click(function (e) {

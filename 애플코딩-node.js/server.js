@@ -11,19 +11,18 @@ app.use(methodOverride("_method"));
 
 app.use("/public", express.static("public"));
 
+require("dotenv").config();
+
 var db;
-MongoClient.connect(
-  "mongodb+srv://admin:qwer1234@cluster0.sdeif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  function (에러, client) {
-    if (에러) return console.log(에러);
+MongoClient.connect(process.env.DB_URL, function (에러, client) {
+  if (에러) return console.log(에러);
 
-    db = client.db("todoapp");
+  db = client.db("todoapp");
 
-    app.listen(8080, function () {
-      console.log("listening on 8080");
-    });
-  }
-);
+  app.listen(process.env.PORT, function () {
+    console.log("listening on 8080");
+  });
+});
 
 app.get("/", function (요청, 응답) {
   응답.render("index.ejs");
@@ -66,8 +65,17 @@ app.get("/list", function (요청, 응답) {
   db.collection("post")
     .find()
     .toArray(function (에러, 결과) {
-      console.log(결과);
       응답.render("list.ejs", { posts: 결과 });
+    });
+});
+
+app.get("/search", (요청, 응답) => {
+  console.log(요청.query.value);
+  db.collection("post")
+    .find({ 제목: 요청.query.value })
+    .toArray(function (에러, 결과) {
+      console.log(결과);
+      응답.render("result.ejs", { data: 결과 });
     });
 });
 
