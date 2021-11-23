@@ -70,12 +70,24 @@ app.get("/list", function (요청, 응답) {
 });
 
 app.get("/search", (요청, 응답) => {
+  let 검색조건 = [
+    {
+      $search: {
+        index: "titleSearch",
+        text: {
+          query: 요청.query.value,
+          path: "제목", // 제목날짜 둘다 찾고 싶으면 ['제목', '날짜']
+        },
+      },
+    },
+    { $sort: { _id: 1 } },
+  ];
   console.log(요청.query.value);
   db.collection("post")
-    .find({ 제목: 요청.query.value })
+    .aggregate([{}, {}, {}])
     .toArray(function (에러, 결과) {
       console.log(결과);
-      응답.render("result.ejs", { data: 결과 });
+      응답.render("search.ejs", { data: 결과 });
     });
 });
 
@@ -192,4 +204,31 @@ passport.deserializeUser(function (아이디, done) {
   db.collection("login").findOne({ id: 아이디 }, function (에러, 결과) {
     done(null, { 결과 });
   });
+});
+
+app.use("/shop", require("./routes/shop.js"));
+app.use("/board/sub", require("./routes/sub.js"));
+
+let multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/image");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+var upload = multer({ storage: storage });
+
+app.get("/upload", function (요청, 응답) {
+  응답.render("upload.ejs");
+});
+
+app.post("/upload", upload.single("프로필"), function (요청, 응답) {
+  응답.send("업로드완료");
+});
+
+app.get("/image/:imageName", function (요청, 응답) {
+  응답.sendFile(__dirname + "/public/image" + 요청.params.imageName);
 });
